@@ -1,0 +1,23 @@
+{
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.parameterHints.enabled": false,
+    "editor.inlineSuggest.enabled": false,
+
+    // Tắt snippets rườm rà
+    "editor.suggest.showSnippets": false,
+    "editor.suggest.showWords": false,
+
+    // Giữ gợi ý cần thiết
+    "editor.suggest.showFunctions": true,
+    "editor.suggest.showMethods": true,
+    "editor.suggest.showClasses": true,
+    "editor.suggest.showStructs": true,
+    "editor.suggest.showTypes": true,
+    "files.associations": {
+        "map": "cpp",
+        "iostream": "cpp",
+        "utility": "cpp",
+        "vector": "cpp",
+        "xutility": "cpp"
+    }
+}
