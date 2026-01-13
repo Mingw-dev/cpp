@@ -18,6 +18,9 @@
         "iostream": "cpp",
         "utility": "cpp",
         "vector": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "iosfwd": "cpp",
+        "random": "cpp",
+        "ostream": "cpp"
     }
 }

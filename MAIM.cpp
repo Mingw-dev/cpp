@@ -1,26 +1,16 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<map>
-#include<cstring>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
-int main(){
-    int t;
-    cin >> t;
-    cin.ignore();
-    while(t--){
-        int n , k;
-        cin >> n >> k;
-        vector <int> a(n);
-        for(int i = 0 ; i < n ; i ++) cin >> a[i];
-        map <int , int > b;
-        int cnt = 0;
-        for( auto x : a){
-            int need = k - x;
-            if( b.find(need) != b.end()) cnt += b[need] ;
-            b[x] ++;
-        }
-        cout << cnt << "\n";
+int n , x , a[1001];
+void in(){
+    for(int i = 1 ; i <= n ; i++) cout << a[i] << " ";
+    cout << endl;
+}
+void Try(int i){
+    for(int j = 1 ; j <= n ; j++){
+        int sum = 0;
+        sum += a[j];
+        if(sum == x) in();
+        else Try( i + 1 );
+        
     }
 }
