@@ -1,28 +1,53 @@
 #include<bits/stdc++.h>
 using namespace std;
-void merge(vector<int>& a , int l , int m, int r) {
-    // Tạo 2 vector con
-    vector<int> x(a.begin() + l , a.begin() + m + 1);
-    vector<int> y(a.begin() + m + 1 , a.begin() + r + 1);
-    int i = 0, j = 0, k = l;
-    while (i < (int)x.size() && j < (int)y.size()) {
-        if (x[i] <= y[j]) {
-            a[k++] = x[i++];
+void merge(vector<int> &a , int l , int m , int r) {
+    vector<int> x (a.begin() + l , a.begin() + m + 1);
+
+    vector<int> y (a.begin() + m + 1  , a.begin() + r + 1);
+    int i = 0 , j = 0;
+
+    int s1 = x.size(), s2 = y.size();
+
+    while(i < s1 && j < s2) {
+        if(x[i] < y[j]) 
+        {
+            a[l ++] = x[i];
+
+            i++;
         } else {
-            a[k++] = y[j++];
+            a[l++] = y[j];
+            j++;
         }
     }
-    // Thêm các phần tử còn lại
-    while (i < (int)x.size()) a[k++] = x[i++];
-    while (j < (int)y.size()) a[k++] = y[j++];
+    while(i < s1) {
+        a[l++] = x[i++];
+    }
+    while(j < s2) a[l++] = y[j++];
 }
-void mergesort(vector<int> a , int l , int r){
-    if(l >= r ) return ;
+
+void mergeSort(vector<int> &a , int l , int r) {
+    if(l >= r) return;
     int m = (l + r) / 2;
-    mergesort(a , l , m);
-    mergesort(a , m + 1 , r);
+
+    mergeSort(a , l , m);
+    mergeSort(a , m + 1 , r);
     merge(a , l , m , r);
 }
-int main(){
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
+    int t;
+    cin >> t;
+    while(t--) {
+        int n;
+        cin >> n;
+
+        vector<int> a(n);
+        for(int &x : a) cin >> x;
+        mergeSort(a , 0 , n - 1);
+
+        for(int x : a) cout << x << " ";
+        cout << "\n";   
+    }
 }
