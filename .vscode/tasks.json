@@ -1,0 +1,16 @@
+{
+    "label": "Build & Run C++ with input/output file (PowerShell)",
+    "type": "shell",
+    "command": "g++ -std=c++17 -g \"${file}\" -o \"${fileDirname}\\${fileBasenameNoExtension}.exe\"; if ($?) { Get-Content inputf.in | \"${fileDirname}\\${fileBasenameNoExtension}.exe\" | Out-File -FilePath outputf.out -Encoding utf8 }",
+    "options": {
+        "shell": {
+            "executable": "powershell.exe",
+            "args": ["-Command"]
+        }
+    },
+    "group": {
+        "kind": "build",
+        "isDefault": true
+    },
+    "problemMatcher": ["$gcc"]
+}

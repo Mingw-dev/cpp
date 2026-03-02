@@ -1,0 +1,14 @@
+Các thao tác cơ bản trong stack(vào sau ra trước):
+- push(): thêm 1 phần tử vào stack
+- pop () : đẩy phần tử ra stack
+- top(): lấy phần tử cuối stack
+- isEmpty: kiểm tra xem có rỗng không
+- size(): số lượng của stack
+
+Các thao tác cơ bản trong queue(vào trước ra trước)
+
+- enqueue: thêm phần tử
+- dequeue: lấy phần tử ở đầu hàng đợi (loại bỏ phần tử đầu)
+- front: lấy phần tử ở đầu mà không xóa
+- back: xem phần tử mới thêm vào
+

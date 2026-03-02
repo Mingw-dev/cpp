@@ -1,0 +1,7 @@
+push_back(x)	Thêm cuối
+push_front(x)	Thêm đầu
+pop_back()	Xóa cuối
+pop_front()	Xóa đầu
+front()	Lấy phần tử đầu
+back()	Lấy phần tử cuối
+empty()	Kiểm tra rỗng
