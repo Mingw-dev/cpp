@@ -1,37 +1,45 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main() {
-    int n, m;
-    cin >> n >> m;  // n đỉnh, m cạnh
+    int t;
+    cin >> t;
+    while(t--) {
+        int v , e , x;
 
-    vector<int> adj[n + 1];
-    vector<bool> visited(n + 1, false);
+        cin >> v >> e >> x;
 
-    for(int i = 0; i < m; i++) {
-        int u, v;
-        cin >> u >> v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);  // nếu là đồ thị vô hướng
-    }
+        vector<int> adj[v + 1];
+        vector<bool> check(v + 1 , false);
+        for(int i = 0 ; i < e ; i++) {
+            int u , k;
+            cin >> u >> k;
 
-    stack<int> st;
-    st.push(1);  // bắt đầu từ đỉnh 1
+            adj[u].push_back(k);
+            adj[k].push_back(u);
+        }
 
-    while(!st.empty()) {
-        int u = st.top();
-        st.pop();
+        for(int i = 1 ; i <= v ; i++) {
+            sort(adj[i].begin() , adj[i].end());
+        }
 
-        if(!visited[u]) {
-            cout << u << " ";
-            visited[u] = true;
+        stack<int> st;
+        st.push(x);
 
-            // đẩy các đỉnh kề vào stack
-            for(int v : adj[u]) {
-                if(!visited[v]) {
-                    st.push(v);
+        while(!st.empty()) {
+            int top = st.top();
+            st.pop();
+            
+            if(!check[top]) {
+                cout << top << " ";
+                check[top] = true;
+
+                for(int i = adj[top].size() - 1 ; i >= 0 ; i--) {
+                    if(!check[adj[top][i]]) st.push(adj[top][i]);
                 }
             }
+
         }
+        cout << endl;
     }
 }

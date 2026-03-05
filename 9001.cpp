@@ -17,7 +17,7 @@ int main() {
             cin >> u >> v;
 
             a[u].push_back(v);
-            //a[v].push_back(u);
+            a[v].push_back(u);
         }
 
         for(int i = 1 ; i <= v ; i++) {
