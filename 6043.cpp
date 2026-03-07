@@ -1,42 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int n, k;
-vector<int> a(1001, 0);
-vector<vector<int>> b;
-
-void ql(int i) {
-    for(int j = a[i - 1] + 1; j <= n - k + i; j++) {
-        a[i] = j;
-        if(i == k) {
-            vector<int> tmp(a.begin() + 1, a.begin() + k + 1);
-            b.push_back(tmp);
-        }
-        else ql(i + 1);
-    }
-}
-
-void solve() {
+int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(NULL);
 
     int t;
     cin >> t;
     while(t--) {
-        cin >> n >> k;
-
-        b.clear();
-        fill(a.begin(), a.end(), 0);
-
-        ql(1);
-
-        for(int i = b.size() - 1; i >= 0; i--) {
-            for(int x : b[i]) cout << x << " ";
-            cout << endl;
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        bool check = false;
+        int sum = 0;
+        for(int i = 0 ; i < n ; i++) {
+            cin >> a[i];
+            sum += a[i];
         }
-    }
-}
 
-int main() {
-    solve();
+        int suml = 0;
+        for(int i = 0 ; i < n ; i++) {
+            int sumr = sum - suml - a[i];
+
+            if(sumr == suml) {
+                check = true;
+                cout << i + 1 << "\n";
+                break;
+            }
+
+            suml += a[i];
+        }
+
+        if(!check) cout << "-1\n";
+    }
 }
