@@ -5,26 +5,21 @@ int main() {
     int t;
     cin >> t;
     while(t--) {
-        int n;
-        cin >> n;
+        int n , k;
+        cin >> n >> k;
 
-        vector<ll> a(n);
-        for(auto &x : a) cin >> x;
+        vector<int> a(n);
+        map<int , int> mp;
 
-        ll res = 0;
-        ll mini = LLONG_MAX;
+        int cnt = 0;
+        for(int i = 0 ; i < n ; i++) {
+            cin >> a[i];
 
-        for(int i = 0 ; i < n - 1 ; i++) {
-            for(int j = i + 1 ; j < n ; j++) {
-                ll req = a[i] + a[j];
-                if(abs(req) < mini) {
-                    mini = abs(req);
-                    res = req;
-                }
-            }
+            int aim = k - a[i];
+            if(mp.find(aim) != mp.end()) cnt += mp[aim];
+            mp[a[i]] ++;
         }
 
-        cout << res << "\n";
-        
+        cout << cnt << endl;
     }
 }
