@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int c, n;
+    cin >> c >> n;
+
+    vector<int> w(n + 1);
+    for(int i = 1 ; i <= n ; i++) cin >> w[i];
+    vector<int> dp(c + 1);
+
+    for(int i = 1 ; i <= n ; i++) {
+        for(int )
+    }
+}
