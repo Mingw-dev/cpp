@@ -8,8 +8,11 @@ int main() {
     vector<int> w(n + 1);
     for(int i = 1 ; i <= n ; i++) cin >> w[i];
     vector<int> dp(c + 1);
-
     for(int i = 1 ; i <= n ; i++) {
-        for(int )
+        for(int j = c ; j >= w[i] ; j--) {
+            dp[j] = max(dp[j] , dp[j - w[i]] + w[i]);
+        }
     }
+
+    cout << dp[c] << endl;
 }
