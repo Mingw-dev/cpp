@@ -1,35 +1,35 @@
-// #include<bits/stdc++.h>
-// using namespace std;
-// int n , a[1001], b[1001] = {0} , xuoi[20] = {0} , nguoc[20] = {0};
+#include<bits/stdc++.h>
+using namespace std;
+int n , a[1001], b[1001] = {0} , xuoi[20] = {0} , nguoc[20] = {0};
 
-// void in() {
-//     for(int i = 1 ; i <= n ; i++) cout << a[i];
+void in() {
+    for(int i = 1 ; i <= n ; i++) cout << a[i];
 
-//     cout << endl;
-// }
+    cout << endl;
+}
 
-// void ql(int i) {
-//     for(int j = 1 ; j <= n ; j++) {
-//         if(!b[j] && !xuoi[i - j + n] && !nguoc[i + j - 1]) {
+void ql(int i) {
+    for(int j = 1 ; j <= n ; j++) {
+        if(!b[j] && !xuoi[i - j + n] && !nguoc[i + j - 1]) {
 
-//             a[i] = j;
-//             b[j] = 1 ; xuoi[i - j + n] = 1 ; nguoc[i + j - 1] = 1;
-//             if(i == n) in();
+            a[i] = j;
+            b[j] = 1 ; xuoi[i - j + n] = 1 ; nguoc[i + j - 1] = 1;
+            if(i == n) in();
 
-//             else ql(i + 1);
-//             b[j] = 0 ; xuoi[i - j + n] = 0 ; nguoc[i + j - 1] = 0;
+            else ql(i + 1);
+            b[j] = 0 ; xuoi[i - j + n] = 0 ; nguoc[i + j - 1] = 0;
 
-//         }
-//     }
-// }
+        }
+    }
+}
 
-// int main() {
-//     ios_base::sync_with_stdio(false);
-//     cin.tie(NULL);
-//     cin >> n;
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin >> n;
 
-//     ql(1);
-// }
+    ql(1);
+}
 
 
 // Cho một bàn cờ 8 x 8, mỗi ô có một giá trị A[i][j] nhất định (0 ≤ A[i][j] ≤ 100), tương ứng với điểm số đạt được nếu như bạn đặt một quân cờ vào đó.
@@ -74,66 +74,66 @@
 
 // Test 1: 260
 
- #include <bits/stdc++.h>
+// #include <bits/stdc++.h>
 
-using namespace std;
-using ll = long long;
+// using namespace std;
+// using ll = long long;
 
-int t, arr[10][10];
-int n = 8;
+// int t, arr[10][10];
+// int n = 8;
 
-int a[100], b[100], xuoi[100], nguoc[100];
+// int a[100], b[100], xuoi[100], nguoc[100];
 
-int max_sum = 0;
+// int max_sum = 0;
 
-void ql(int i)
-{
-    for (int j = 1; j <= n; j++)
-    {
-        if (!b[j] && !xuoi[i - j + n] && !nguoc[i + j - 1])
-        {
-            a[i] = j;
-            b[j] = 1;
-            xuoi[i - j + n] = 1;
-            nguoc[i + j - 1] = 1;
-            if (i == n)
-            {
-                int sum = 0;
-                for (int p = 1; p <= n; p++)
-                {
-                    sum += arr[p - 1][a[p] - 1];
-                }
-                max_sum = max(sum, max_sum);
-            }
-            else
-            {
-                ql(i + 1);
-            }
-            b[j] = 0;
-            xuoi[i - j + n] = 0;
-            nguoc[i + j - 1] = 0;
-        }
-    }
-}
+// void ql(int i)
+// {
+//     for (int j = 1; j <= n; j++)
+//     {
+//         if (!b[j] && !xuoi[i - j + n] && !nguoc[i + j - 1])
+//         {
+//             a[i] = j;
+//             b[j] = 1;
+//             xuoi[i - j + n] = 1;
+//             nguoc[i + j - 1] = 1;
+//             if (i == n)
+//             {
+//                 int sum = 0;
+//                 for (int p = 1; p <= n; p++)
+//                 {
+//                     sum += arr[p - 1][a[p] - 1];
+//                 }
+//                 max_sum = max(sum, max_sum);
+//             }
+//             else
+//             {
+//                 ql(i + 1);
+//             }
+//             b[j] = 0;
+//             xuoi[i - j + n] = 0;
+//             nguoc[i + j - 1] = 0;
+//         }
+//     }
+// }
 
-int main()
-{
-    cin >> t;
+// int main()
+// {
+//     cin >> t;
 
-    for (int i = 0; i < t; i++)
-    {
-        for (int i = 0; i < 8; i++)
-        {
-            for (int j = 0; j < 8; j++)
-            {
-                cin >> arr[i][j];
-            }
-        }
-        max_sum = 0;
-        memset(b, false, sizeof(b));
-        memset(xuoi, false, sizeof(xuoi));
-        memset(nguoc, false, sizeof(nguoc));
-        ql(1);
-        cout << "Test " << i + 1 << ": " << max_sum << endl;
-    }
-}
+//     for (int i = 0; i < t; i++)
+//     {
+//         for (int i = 0; i < 8; i++)
+//         {
+//             for (int j = 0; j < 8; j++)
+//             {
+//                 cin >> arr[i][j];
+//             }
+//         }
+//         max_sum = 0;
+//         memset(b, false, sizeof(b));
+//         memset(xuoi, false, sizeof(xuoi));
+//         memset(nguoc, false, sizeof(nguoc));
+//         ql(1);
+//         cout << "Test " << i + 1 << ": " << max_sum << endl;
+//     }
+// }
